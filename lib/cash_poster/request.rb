@@ -1,0 +1,7 @@
+require 'cash_poster/request/base_request'
+require 'cash_poster/request/cancel'
+require 'cash_poster/request/change'
+require 'cash_poster/request/extend'
+require 'cash_poster/request/register'
+require 'cash_poster/request/resend'
+require 'cash_poster/request/status'
