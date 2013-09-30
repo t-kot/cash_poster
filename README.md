@@ -27,7 +27,7 @@ For example.
 CashPoster::Config.setup do |config|
   cashpost_config = YAML.load_file("#{::Rails.root}/config/cashpost.yml")[::Rails.env].symbolize_keys
   config.api_url = cashpost_config[:api_url]
-  config.shop_id = '844005'
+  config.shop_id = '123456'
   config.check_code = cashpost_config[:check_code]
   config.send_ptncd = cashpost_config[:send_ptncd]
   config.guide_ptn = '0'
