@@ -1,6 +1,6 @@
 # CashPoster
 
-TODO: Write a gem description
+Cashpost(http://www.econtext.jp/service/cashpost) API Utility.
 
 ## Installation
 
@@ -18,7 +18,37 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Setting
+In Rails, You should add config file to initializers.
+
+For example.
+
+```
+CashPoster::Config.setup do |config|
+  cashpost_config = YAML.load_file("#{::Rails.root}/config/cashpost.yml")[::Rails.env].symbolize_keys
+  config.api_url = cashpost_config[:api_url]
+  config.shop_id = '844005'
+  config.check_code = cashpost_config[:check_code]
+  config.send_ptncd = cashpost_config[:send_ptncd]
+  config.guide_ptn = '0'
+  config.guide_tmpcd = cashpost_config[:guide_tmpcd]
+  config.proxy = { host: 'proxy.hoge.com', port: '8080' }
+end
+
+```
+
+### Sample Register Request
+
+```
+req = CashPoster::Request::Register.new(
+  order_id: '1234',
+  email: 't.kotohata@gmail.com',
+  receive_key: 'hogehoge', #=> 受け取り用のキー(前もってアプリ側で用意)
+  amount: 10000 #=> 送金額
+)
+CashPoster::Transaction.new.execute(req) #=> #<CashPoster::Response>
+```
+
 
 ## Contributing
 
