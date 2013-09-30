@@ -6,6 +6,7 @@ require 'nokogiri'
 require 'cash_poster/request'
 require 'cash_poster/response'
 require 'cash_poster/transaction'
+require 'cash_poster/error'
 
 module CashPoster
   module Config
