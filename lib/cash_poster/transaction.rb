@@ -13,7 +13,7 @@ module CashPoster
         http = Net::HTTP.new(uri.host, uri.port)
       end
       http.use_ssl = true
-      http.ssl_version = 'SSLv3'
+      http.ssl_version = 'TLSv1_2'
       http_req = Net::HTTP::Post.new(uri.path)
       http_req.body = request.params.to_query
       http_res = http.request(http_req)
